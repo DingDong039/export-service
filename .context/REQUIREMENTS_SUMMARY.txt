@@ -1,0 +1,193 @@
+================================================================================
+EXPORT SERVICE - REQUIREMENTS CHECKLIST
+================================================================================
+
+เลือก requirements ที่ต้องการ จากตัวเลือกด้านล่าง:
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 1. EXPORT FORMATS (เลือก 1 หรือ มากกว่า)                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Excel (.xlsx) - Basic formatting                                          │
+│ ☐ Excel (.xlsx) - Advanced (formulas, conditional formatting)               │
+│ ☐ Excel - Multiple sheets                                                   │
+│ ☐ CSV - Basic                                                               │
+│ ☐ CSV - Custom delimiter (semicolon, tab, pipe)                            │
+│ ☐ CSV - Multiple encodings (UTF-8, UTF-16, Latin-1)                        │
+│ ☐ PDF - Simple table                                                        │
+│ ☐ PDF - Formatted report (headers, footers, page numbers)                   │
+│ ☐ PDF - With charts/graphs                                                  │
+│ ☐ PDF - With logos/branding                                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 2. DATA VALIDATION                                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Basic (non-empty headers & rows)                                          │
+│ ☐ Header count matches column count                                         │
+│ ☐ Data type validation (string, number, date, boolean)                      │
+│ ☐ Cell content length limits                                                │
+│ ☐ Special character handling                                                │
+│ ☐ Maximum row count limits                                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 3. DATA MANAGEMENT                                                           │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Save to local filesystem                                                  │
+│ ☐ Save to database                                                          │
+│ ☐ Save to S3/Cloud storage                                                  │
+│ ☐ Temporary only (no persistence)                                           │
+│ ☐ File compression                                                          │
+│ ☐ Metadata storage (export time, user, format)                              │
+│ ☐ Download functionality                                                    │
+│ ☐ Delete old exports                                                        │
+│ ☐ Batch operations                                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 4. PERFORMANCE REQUIREMENTS                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Small files (< 1,000 rows)                                                │
+│ ☐ Medium files (1k - 100k rows)                                             │
+│ ☐ Large files (100k+ rows)                                                  │
+│ ☐ Real-time streaming                                                       │
+│ ☐ Async/concurrent exports                                                  │
+│ ☐ Memory-efficient processing                                               │
+│ ☐ Performance benchmarking                                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 5. API & INTEGRATION                                                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ REST API (POST /api/export)                                               │
+│ ☐ Async job processing (queue-based)                                        │
+│ ☐ Return file directly (immediate download)                                 │
+│ ☐ Return file reference (async, get later)                                  │
+│ ☐ Batch export endpoint                                                     │
+│ ☐ Export history/tracking                                                   │
+│ ☐ Export templates (save/load)                                              │
+│ ☐ Custom column mapping                                                     │
+│ ☐ Filter & sort options                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 6. SECURITY & ACCESS CONTROL                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Public access (no auth)                                                   │
+│ ☐ Basic authentication                                                      │
+│ ☐ JWT token authentication                                                  │
+│ ☐ Role-based access (RBAC)                                                  │
+│ ☐ Audit logging (who, what, when)                                           │
+│ ☐ Input sanitization                                                        │
+│ ☐ File path traversal protection                                            │
+│ ☐ Data encryption (at rest/transit)                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 7. CUSTOMIZATION & OPTIONS                                                   │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Fixed format (no customization)                                           │
+│ ☐ Column selection                                                          │
+│ ☐ Custom headers/labels                                                     │
+│ ☐ Number formatting (decimals, currency)                                    │
+│ ☐ Date formatting                                                           │
+│ ☐ Colors & styling                                                          │
+│ ☐ Header styling (bold, background)                                         │
+│ ☐ Alternating row colors                                                    │
+│ ☐ Borders & alignment                                                       │
+│ ☐ Multi-language support (i18n)                                             │
+│ ☐ Locale-specific formatting                                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 8. ERROR HANDLING & RELIABILITY                                              │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Detailed error messages                                                   │
+│ ☐ Validation error details                                                  │
+│ ☐ Graceful error recovery                                                   │
+│ ☐ Retry mechanisms                                                          │
+│ ☐ Timeout handling                                                          │
+│ ☐ Out-of-memory handling                                                    │
+│ ☐ Transaction rollback (if DB)                                              │
+│ ☐ Logging (errors, performance)                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 9. CODE QUALITY & TESTING                                                    │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Unit tests (80%+ coverage)                                                │
+│ ☐ Integration tests                                                         │
+│ ☐ Performance tests/benchmarks                                              │
+│ ☐ Security tests                                                            │
+│ ☐ SOLID principles compliance                                               │
+│ ☐ Clean code practices                                                      │
+│ ☐ Comprehensive documentation                                               │
+│ ☐ Code comments (complex logic)                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 10. DEPLOYMENT & OPERATIONS                                                  │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ ☐ Docker containerization                                                   │
+│ ☐ Environment configuration                                                 │
+│ ☐ CI/CD pipeline                                                            │
+│ ☐ Health checks/monitoring                                                  │
+│ ☐ Logging aggregation                                                       │
+│ ☐ Database migrations (if applicable)                                       │
+│ ☐ Backup & recovery procedures                                              │
+│ ☐ Rollback procedures                                                       │
+│ ☐ Documentation (setup, troubleshooting)                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+================================================================================
+QUICK DECISION MATRIX
+================================================================================
+
+MVP (Minimum Viable Product - Week 1-2):
+  ☐ CSV export
+  ☐ Excel export (basic)
+  ☐ PDF export (simple)
+  ☐ REST API endpoint
+  ☐ File storage (local)
+  ☐ Basic validation
+  ☐ Unit tests
+
+Phase 2 (Enhancement - Week 3-4):
+  ☐ Advanced formatting
+  ☐ Multiple worksheets
+  ☐ Async processing
+  ☐ Authentication
+  ☐ Audit logging
+
+Phase 3 (Enterprise - Month 2+):
+  ☐ Cloud storage
+  ☐ Export templates
+  ☐ RBAC
+  ☐ Analytics
+  ☐ Performance optimization
+
+================================================================================
+CRITICAL QUESTIONS
+================================================================================
+
+ตอบคำถามเหล่านี้เพื่อให้ได้ requirements ที่ชัดเจน:
+
+1. Primary use case? 
+   □ One-time reports  □ Scheduled exports  □ User downloads  □ API integration
+
+2. Data volume?
+   □ < 1,000 rows  □ 1k-100k rows  □ 100k+ rows  □ Real-time streaming
+
+3. Deployment?
+   □ Standalone  □ Integration with existing app  □ Microservice  □ Serverless
+
+4. User base?
+   □ < 100 users  □ 100-1k users  □ 1k+ users
+
+5. Budget?
+   □ Open source only  □ Small budget  □ Enterprise budget
+
+6. Timeline?
+   □ MVP in 1-2 weeks  □ Full in 1 month  □ Long-term project
+
+================================================================================
