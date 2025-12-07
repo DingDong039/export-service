@@ -10,7 +10,15 @@ A high-performance REST API service built with Rust and Axum for exporting data 
 - **Data Validation**: Comprehensive validation for headers, rows, and cell content
 - **High Performance**: Built with Rust for maximum speed and safety
 
+## Documentation
+
+- **[API Specification](docs/API_SPEC.md)** - Complete API reference with examples
+- **[ER Diagram](docs/ER_DIAGRAM.md)** - Entity relationships and system architecture
+- **[Development Guide](CLAUDE.md)** - Development standards and workflows
+
 ## Architecture
+
+This project follows **Clean Architecture** with strict separation of concerns:
 
 ```
 src/
@@ -36,6 +44,8 @@ src/
 └── main.rs              # Application entry point
 ```
 
+**Dependency Rule:** Dependencies only flow inward (Presentation → Application → Domain ← Infrastructure)
+
 ## Getting Started
 
 ### Prerequisites
@@ -56,7 +66,7 @@ cargo build
 cargo run
 ```
 
-The server will start on `http://127.0.0.1:3001`
+The server will start on `http://127.0.0.1:3000`
 
 ## API Endpoints
 
@@ -92,7 +102,7 @@ Request Body:
 ```json
 {
   "title": "Sales Report",
-  "format": "excel",  // or "csv", "pdf"
+  "format": "excel",
   "headers": ["ID", "Name", "Amount"],
   "rows": [
     ["1", "Product A", "100"],
@@ -102,23 +112,48 @@ Request Body:
   "options": {
     "freeze_headers": true,
     "auto_fit_columns": true,
-    "header_bold": true
-  }
+    "header_bold": true,
+    "header_background": "#4472C4"
+  },
+  "column_metadata": [
+    {"column_type": "text"},
+    {"column_type": "text"},
+    {"column_type": "currency"}
+  ]
 }
 ```
 
+**Available Options:**
+
+- `freeze_headers` (bool): Freeze header row (Excel only)
+- `auto_fit_columns` (bool): Auto-fit column widths (Excel only)
+- `header_bold` (bool): Make headers bold
+- `header_background` (string): Header background color (hex: #RRGGBB)
+- `include_header_row` (bool): Include header row in export
+- `delimiter` (string): Column delimiter (CSV only, default: ",")
+
+**Column Types:**
+
+- `text`: Left-aligned text (default)
+- `number`: Right-aligned numbers
+- `currency`: Right-aligned currency format
+- `percentage`: Right-aligned percentage
+- `date`: Date format
+
 Response: Binary file with appropriate Content-Type header
+
+📘 **For detailed API documentation, see [docs/API_SPEC.md](docs/API_SPEC.md)**
 
 ## Usage Examples
 
 ### 1. Get Authentication Token
 ```bash
-curl -X GET http://127.0.0.1:3001/api/auth/token
+curl -X GET http://127.0.0.1:3000/api/auth/token
 ```
 
 ### 2. Export to Excel
 ```bash
-curl -X POST http://127.0.0.1:3001/api/export \
+curl -X POST http://127.0.0.1:3000/api/export \
   -H "Authorization: Bearer <your-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -135,7 +170,7 @@ curl -X POST http://127.0.0.1:3001/api/export \
 
 ### 3. Export to CSV
 ```bash
-curl -X POST http://127.0.0.1:3001/api/export \
+curl -X POST http://127.0.0.1:3000/api/export \
   -H "Authorization: Bearer <your-token>" \
   -H "Content-Type: application/json" \
   -d '{
@@ -152,7 +187,7 @@ curl -X POST http://127.0.0.1:3001/api/export \
 
 ### 4. Export to PDF
 ```bash
-curl -X POST http://127.0.0.1:3001/api/export \
+curl -X POST http://127.0.0.1:3000/api/export \
   -H "Authorization: Bearer <your-token>" \
   -H "Content-Type: application/json" \
   -d '{

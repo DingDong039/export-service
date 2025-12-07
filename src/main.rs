@@ -68,7 +68,7 @@ async fn main() {
         .await
         .unwrap();
 
-    println!("🚀 Export Service running on http://127.0.0.1:3001");
+    println!("🚀 Export Service running on http://127.0.0.1:3000");
     println!("📝 GET  /health             - Health check");
     println!("📝 GET  /api/auth/token     - Get JWT token");
     println!("📤 POST /api/export         - Export data (requires token)");

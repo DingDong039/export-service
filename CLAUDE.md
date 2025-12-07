@@ -10,7 +10,7 @@ A high-performance REST API service built with Rust and Axum for exporting data 
 
 ### Building and Running
 - Build the project: `cargo build`
-- Run the server: `cargo run` (starts on http://127.0.0.1:3001)
+- Run the server: `cargo run` (starts on http://127.0.0.1:3000)
 - Run in release mode: `cargo build --release && cargo run --release`
 
 ### Testing

@@ -2,7 +2,7 @@
 
 ## Build/Test/Lint Commands
 - **Build**: `cargo build` (dev) or `cargo build --release` (production)
-- **Run**: `cargo run` (starts server on http://127.0.0.1:3001)
+- **Run**: `cargo run` (starts server on http://127.0.0.1:3000)
 - **Test**: `cargo test` (run all tests)
 - **Test single**: `cargo test <test_name>` (e.g., `cargo test validate`)
 - **Lint**: `cargo clippy` (static analysis)
